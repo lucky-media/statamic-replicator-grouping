@@ -1,0 +1,77 @@
+{{ paginate }}
+<ul class="flex flex-gap-3 justify-center items-center">
+    {{ if prev_page }}
+    <li>
+        <a href="{{ prev_page }}">
+            {{ svg src="left-arrow" class="fill-current text-black w-5 h-5 hover:text-red-500" }}
+        </a>
+    </li>
+    {{ else }}
+    <li class="disabled" disabled>
+        {{ svg src="left-arrow" class="fill-current text-black w-5 h-5 opacity-50" }}
+    </li>
+    {{ /if }}
+
+    {{ links:segments }}
+
+    {{ first }}
+        {{ if page == current_page }}
+            <li>
+                <span class="font-bold border-b-2 border-red-500">{{ page }}</span>
+            </li>
+        {{ else }}
+            <li class="transform hover:scale-150 transition duration-300 ease-in-out hover:text-red-500">
+                <a href="{{ url }}">{{ page }}</a>
+            </li>
+        {{ /if }}
+    {{ /first }}
+
+    {{ if slider }}
+    <li class="disabled:opacity-50" disabled>
+        <span>...</span>
+    </li>
+    {{ /if }}
+
+    {{ slider }}
+        {{ if page == current_page }}
+        <li class="active">
+            <span>{{ page }}</span>
+        </li>
+        {{ else }}
+        <li>
+            <a href="{{ url }}">{{ page }}</a>
+        </li>
+        {{ /if }}
+    {{ /slider }}
+
+    {{ if slider || (!slider && last) }}
+    <li class="disabled:opacity-50" disabled>
+        <span>...</span>
+    </li>
+    {{ /if }}
+
+    {{ last }}
+        {{ if page == current_page }}
+        <li class="active">
+            <span>{{ page }}</span>
+        </li>
+        {{ else }}
+        <li>
+            <a href="{{ url }}">{{ page }}</a>
+        </li>
+        {{ /if }}
+    {{ /last }}
+
+    {{ /links:segments }}
+
+    {{ if next_page }}
+    <li>
+        <a href="{{ next_page }}">
+            {{ svg src="right-arrow" class="fill-current text-black w-5 h-5 hover:text-red-500" }}
+        </a>
+    </li>
+    {{ else }}
+        <li class="disabled:opacity-50" disabled>{{ svg src="right-arrow" class="fill-current text-black w-5 h-5 opacity-50" }}</li>
+    {{ /if }}
+</ul>
+{{ /paginate }}

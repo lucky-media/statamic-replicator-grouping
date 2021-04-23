@@ -1,0 +1,136 @@
+title: Pages
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: blocks
+        field:
+          collapse: false
+          sets:
+            cta_section:
+              display: 'CTA Section'
+              fields:
+                -
+                  handle: version
+                  field:
+                    options:
+                      cta_section_1: 'Version 1'
+                      cta_section_2: 'Version 2'
+                      cta_section_3: 'Version 3'
+                    display: 'CTA Version'
+                    default: 'cta_section_1'
+                    type: button_group
+                    icon: button_group
+                    instructions: 'Select cta style'
+                    listable: hidden
+                    validate:
+                      - required
+                -
+                  handle: title
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Title
+                    type: text
+                    icon: text
+                    listable: hidden
+                    validate:
+                      - required
+                -
+                  handle: link
+                  field:
+                    display: Link
+                    type: link
+                    icon: link
+                    listable: hidden
+            feature_section:
+              display: 'Feature Section'
+              fields:
+                -
+                  handle: version
+                  field:
+                    options:
+                      feature_section_1: 'Version 1'
+                      feature_section_2: 'Version 2'
+                    display: 'Feature Version'
+                    default: 'feature_section_1'
+                    type: button_group
+                    icon: button_group
+                    listable: hidden
+                    validate:
+                      - required
+                -
+                  handle: title
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Title
+                    type: text
+                    icon: text
+                    listable: hidden
+                -
+                  handle: image
+                  field:
+                    mode: grid
+                    container: assets
+                    restrict: true
+                    allow_uploads: true
+                    max_files: 1
+                    display: Image
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                    if:
+                      version: 'equals feature_section_2'
+                -
+                  handle: feature_items
+                  field:
+                    collapse: false
+                    sets:
+                      new_set:
+                        display: 'New Set'
+                        fields:
+                          -
+                            handle: title
+                            field:
+                              input_type: text
+                              antlers: false
+                              display: Title
+                              type: text
+                              icon: text
+                              listable: hidden
+                          -
+                            handle: description
+                            field:
+                              antlers: false
+                              display: Description
+                              type: textarea
+                              icon: textarea
+                              listable: hidden
+                    display: 'Feature Items'
+                    type: replicator
+                    icon: replicator
+                    listable: hidden
+          display: Blocks
+          type: replicator
+          icon: replicator
+          listable: hidden
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          required: true
+          localizable: true
+          validate:
+            - required

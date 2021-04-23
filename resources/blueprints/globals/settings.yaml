@@ -1,0 +1,70 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: sitename
+        field:
+          input_type: text
+          antlers: false
+          display: Sitename
+          type: text
+          icon: text
+          instructions: 'Website name'
+          listable: hidden
+      -
+        handle: social_media
+        field:
+          collapse: false
+          sets:
+            social:
+              display: Social
+              fields:
+                -
+                  handle: title
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Title
+                    type: text
+                    icon: text
+                    listable: hidden
+                    validate:
+                      - required
+                -
+                  handle: icon
+                  field:
+                    options:
+                      facebook: Facebook
+                      instagram: Instagram
+                      twitter: Twitter
+                    multiple: false
+                    max_items: 1
+                    clearable: false
+                    searchable: true
+                    taggable: false
+                    push_tags: false
+                    cast_booleans: false
+                    display: Icon
+                    type: select
+                    icon: select
+                    listable: hidden
+                -
+                  handle: link
+                  field:
+                    display: Link
+                    type: link
+                    icon: link
+                    listable: hidden
+          display: 'Social Media'
+          type: replicator
+          icon: replicator
+          listable: hidden
+      -
+        handle: copyright
+        field:
+          antlers: false
+          display: Copyright
+          type: textarea
+          icon: textarea
+          listable: hidden

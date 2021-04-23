@@ -1,0 +1,23 @@
+title: Settings
+data:
+  sitename: 'Statamic Starter'
+  social_media:
+    -
+      title: Facebook
+      icon: facebook
+      link: 'https://www.facebook.com/'
+      type: social
+      enabled: true
+    -
+      title: Instagram
+      icon: instagram
+      link: 'https://www.instagram.com/'
+      type: social
+      enabled: true
+    -
+      title: Twitter
+      icon: twitter
+      link: 'https://www.twitter.com/'
+      type: social
+      enabled: true
+  copyright: 'Të gjitha të drejtat janë të rezervuara © 2021'
