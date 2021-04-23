@@ -15,6 +15,12 @@ cp .env.example .env
 php artisan key:generate
 ```
 
+The folling command makes a new user (make sure its super admin)
+
+```bash
+php please make:user
+```
+
 To install the required node packages first do an install:
 
 ```bash
